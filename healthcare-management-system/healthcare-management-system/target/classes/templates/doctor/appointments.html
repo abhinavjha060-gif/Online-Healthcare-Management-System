@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My Appointments</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="~{fragments/nav :: nav}"></div>
+
+<div class="container">
+    <h1>My Appointments</h1>
+    <div class="alert alert-error" th:if="${error}" th:text="${error}"></div>
+    <div class="alert alert-success" th:if="${success}" th:text="${success}"></div>
+
+    <div class="card">
+        <table>
+            <thead>
+            <tr><th>Date/Time</th><th>Patient</th><th>Reason</th><th>Status</th><th>Actions</th></tr>
+            </thead>
+            <tbody>
+            <tr th:each="a : ${appointments}">
+                <td th:text="${#temporals.format(a.appointmentDateTime, 'dd MMM yyyy, hh:mm a')}">date</td>
+                <td th:text="${a.patient.user.fullName}">Patient</td>
+                <td th:text="${a.reason}">Reason</td>
+                <td><span class="badge" th:classappend="${'badge-' + #strings.toLowerCase(a.status.name())}"
+                          th:text="${a.status}">STATUS</span></td>
+                <td>
+                    <div class="actions">
+                        <form th:if="${a.status.name() == 'PENDING'}"
+                              th:action="@{'/doctor/appointments/' + ${a.id} + '/confirm'}" method="post">
+                            <button type="submit" class="btn btn-success btn-sm">Confirm</button>
+                        </form>
+                        <form th:if="${a.status.name() == 'PENDING' || a.status.name() == 'CONFIRMED'}"
+                              th:action="@{'/doctor/appointments/' + ${a.id} + '/cancel'}" method="post"
+                              onsubmit="return confirm('Cancel this appointment?');">
+                            <button type="submit" class="btn btn-warning btn-sm">Cancel</button>
+                        </form>
+                        <a th:if="${a.status.name() == 'CONFIRMED'}"
+                           class="btn btn-primary btn-sm" th:href="@{'/doctor/records/new/' + ${a.id}}">Add Record</a>
+                        <form th:if="${a.status.name() == 'CANCELLED'}"
+                              th:action="@{'/doctor/appointments/' + ${a.id} + '/delete'}" method="post"
+                              onsubmit="return confirm('Permanently delete this cancelled appointment?');">
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <p class="empty-state" th:if="${#lists.isEmpty(appointments)}">No appointments yet.</p>
+    </div>
+</div>
+</body>
+</html>

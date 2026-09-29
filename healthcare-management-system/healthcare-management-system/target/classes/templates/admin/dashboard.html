@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="~{fragments/nav :: nav}"></div>
+
+<div class="container">
+    <h1>Admin Dashboard</h1>
+    <p class="muted">System-wide overview of the Healthcare Management System.</p>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number" th:text="${totalUsers}">0</div>
+            <div class="stat-label">Total Users</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" th:text="${totalDoctors}">0</div>
+            <div class="stat-label">Doctors</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" th:text="${totalPatients}">0</div>
+            <div class="stat-label">Patients</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" th:text="${totalAppointments}">0</div>
+            <div class="stat-label">Appointments</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Quick Actions</h3>
+        <div class="actions">
+            <a class="btn btn-primary" th:href="@{/admin/doctors/new}">+ Add Doctor</a>
+            <a class="btn btn-secondary" th:href="@{/admin/users}">Manage Users</a>
+            <a class="btn btn-secondary" th:href="@{/admin/appointments}">View All Appointments</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

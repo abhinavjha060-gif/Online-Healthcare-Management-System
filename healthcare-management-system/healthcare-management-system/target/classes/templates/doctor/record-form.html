@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Medical Record</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="~{fragments/nav :: nav}"></div>
+
+<form class="form-box" th:action="@{'/doctor/records/new/' + ${appointment.id}}" method="post">
+    <h2>Add Medical Record</h2>
+    <p class="muted text-center">
+        Patient: <strong th:text="${appointment.patient.user.fullName}">Patient</strong><br>
+        Appointment: <span th:text="${#temporals.format(appointment.appointmentDateTime, 'dd MMM yyyy, hh:mm a')}">date</span>
+    </p>
+
+    <div class="form-group">
+        <label>Diagnosis</label>
+        <textarea name="diagnosis" required></textarea>
+    </div>
+    <div class="form-group">
+        <label>Prescription</label>
+        <textarea name="prescription" required></textarea>
+    </div>
+    <div class="form-group">
+        <label>Notes (optional)</label>
+        <textarea name="notes"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" style="width:100%;">Save Record &amp; Complete Appointment</button>
+</form>
+</body>
+</html>

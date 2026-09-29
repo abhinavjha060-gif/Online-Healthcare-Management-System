@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Medical Records</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="~{fragments/nav :: nav}"></div>
+
+<div class="container">
+    <h1>Medical Records I've Created</h1>
+
+    <div class="card" th:each="r : ${records}">
+        <h3 th:text="${r.patient.user.fullName}">Patient</h3>
+        <p class="muted" th:text="${#temporals.format(r.createdAt, 'dd MMM yyyy, hh:mm a')}">date</p>
+        <p><strong>Diagnosis:</strong> <span th:text="${r.diagnosis}"></span></p>
+        <p><strong>Prescription:</strong> <span th:text="${r.prescription}"></span></p>
+        <p th:if="${r.notes != null and !r.notes.isEmpty()}"><strong>Notes:</strong> <span th:text="${r.notes}"></span></p>
+    </div>
+    <p class="empty-state" th:if="${#lists.isEmpty(records)}">No records created yet.</p>
+</div>
+</body>
+</html>

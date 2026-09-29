@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>My Account</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="~{fragments/nav :: nav}"></div>
+
+<div class="container" style="max-width:640px;">
+    <h1>My Account</h1>
+
+    <div class="alert alert-error" th:if="${error}" th:text="${error}"></div>
+    <div class="alert alert-success" th:if="${success}" th:text="${success}"></div>
+
+    <div class="card">
+        <h3>Details</h3>
+        <p><strong>Name:</strong> <span th:text="${user.fullName}"></span></p>
+        <p><strong>Email:</strong> <span th:text="${user.email}"></span></p>
+        <p><strong>Role:</strong> <span class="badge"
+              th:classappend="${'badge-' + #strings.toLowerCase(user.role.name())}"
+              th:text="${user.role}">ROLE</span></p>
+    </div>
+
+    <div class="card" th:if="${user.role.name() == 'ADMIN'}">
+        <h3>Delete account</h3>
+        <p class="muted">Admin accounts can't be self-deleted, so the system always has at least one admin.
+           Another admin can remove this account from the Users page.</p>
+    </div>
+
+    <div class="card" th:unless="${user.role.name() == 'ADMIN'}" style="border-color:#fecaca;">
+        <h3 style="color:var(--danger);">Delete account</h3>
+        <p class="muted" th:if="${user.role.name() == 'PATIENT'}">
+            This permanently deletes your account, all your appointments and all your medical records.
+            It can't be undone.</p>
+        <p class="muted" th:if="${user.role.name() == 'DOCTOR'}">
+            This permanently deletes your account, all your appointments and all medical records you wrote
+            (patients will lose those records). It can't be undone.</p>
+
+        <form th:action="@{/account/delete}" method="post"
+              onsubmit="return confirm('Permanently delete your account and all linked data?');">
+            <div class="form-group">
+                <label>Confirm with your password</label>
+                <input type="password" name="password" required>
+            </div>
+            <button type="submit" class="btn btn-danger">Delete my account</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

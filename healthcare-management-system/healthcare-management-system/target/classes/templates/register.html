@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register - Healthcare MS</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="~{fragments/nav :: nav}"></div>
+
+<form class="form-box" th:action="@{/register}" method="post">
+    <h2>Patient Registration</h2>
+
+    <div class="alert alert-error" th:if="${error}" th:text="${error}"></div>
+
+    <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" name="fullName" required>
+    </div>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" required>
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="password" required minlength="6">
+    </div>
+    <div class="form-group">
+        <label>Date of Birth</label>
+        <input type="date" name="dateOfBirth">
+    </div>
+    <div class="form-group">
+        <label>Phone</label>
+        <input type="text" name="phone">
+    </div>
+    <div class="form-group">
+        <label>Blood Group</label>
+        <select name="bloodGroup">
+            <option value="">-- Select --</option>
+            <option>A+</option><option>A-</option>
+            <option>B+</option><option>B-</option>
+            <option>AB+</option><option>AB-</option>
+            <option>O+</option><option>O-</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary" style="width:100%;">Create Account</button>
+
+    <p class="muted text-center" style="margin-top:1.2rem;">
+        Already have an account? <a th:href="@{/login}">Login</a>
+    </p>
+    <p class="muted text-center">
+        Note: Doctor and Admin accounts are created by the administrator.
+    </p>
+</form>
+</body>
+</html>

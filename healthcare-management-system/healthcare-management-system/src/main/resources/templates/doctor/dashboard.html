@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="~{fragments/nav :: nav}"></div>
+
+<div class="container">
+    <h1 th:text="'Welcome, ' + ${doctor.user.fullName}">Welcome</h1>
+    <p class="muted" th:text="${doctor.specialization}">Specialization</p>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number" th:text="${totalAppointments}">0</div>
+            <div class="stat-label">Total Appointments</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" th:text="${pendingCount}">0</div>
+            <div class="stat-label">Pending</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number" th:text="${confirmedCount}">0</div>
+            <div class="stat-label">Confirmed</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Recent Appointments</h3>
+        <table>
+            <thead><tr><th>Date/Time</th><th>Patient</th><th>Status</th></tr></thead>
+            <tbody>
+            <tr th:each="a : ${recentAppointments}">
+                <td th:text="${#temporals.format(a.appointmentDateTime, 'dd MMM yyyy, hh:mm a')}">date</td>
+                <td th:text="${a.patient.user.fullName}">Patient</td>
+                <td><span class="badge" th:classappend="${'badge-' + #strings.toLowerCase(a.status.name())}"
+                          th:text="${a.status}">STATUS</span></td>
+            </tr>
+            </tbody>
+        </table>
+        <p class="empty-state" th:if="${#lists.isEmpty(recentAppointments)}">No appointments yet.</p>
+    </div>
+
+    <a class="btn btn-primary" th:href="@{/doctor/appointments}">View All Appointments</a>
+</div>
+</body>
+</html>

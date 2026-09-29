@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Healthcare Management System</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="~{fragments/nav :: nav}"></div>
+
+<div class="hero">
+    <h1>Online Healthcare Management System</h1>
+    <p>Book appointments, manage schedules, and keep medical records in one place —
+       for patients, doctors, and administrators.</p>
+    <div class="actions" style="justify-content:center;">
+        <a class="btn btn-primary" th:href="@{/register}">Register as Patient</a>
+        <a class="btn btn-secondary" th:href="@{/login}">Login</a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="stats-grid">
+        <div class="card">
+            <h3>🧑‍⚕️ Patients</h3>
+            <p class="muted">Book appointments with doctors, track appointment status, and view your medical history anytime.</p>
+        </div>
+        <div class="card">
+            <h3>🩺 Doctors</h3>
+            <p class="muted">Manage your appointment schedule, confirm or cancel bookings, and add diagnosis &amp; prescriptions.</p>
+        </div>
+        <div class="card">
+            <h3>🛠️ Admins</h3>
+            <p class="muted">Manage user accounts, onboard new doctors, and oversee every appointment in the system.</p>
+        </div>
+    </div>
+</div>
+
+<footer>Online Healthcare Management System &mdash; 3rd Sem Live Project</footer>
+</body>
+</html>

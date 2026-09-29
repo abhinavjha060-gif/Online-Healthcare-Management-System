@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Users</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="~{fragments/nav :: nav}"></div>
+
+<div class="container">
+    <h1>All Users</h1>
+    <div class="alert alert-error" th:if="${error}" th:text="${error}"></div>
+    <div class="alert alert-success" th:if="${success}" th:text="${success}"></div>
+
+    <div class="card">
+        <table>
+            <thead>
+            <tr><th>ID</th><th>Name</th><th>Email</th><th>Role</th><th>Action</th></tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.id}">1</td>
+                <td th:text="${user.fullName}">Name</td>
+                <td th:text="${user.email}">email@example.com</td>
+                <td><span class="badge"
+                          th:classappend="${'badge-' + #strings.toLowerCase(user.role.name())}"
+                          th:text="${user.role}">ROLE</span></td>
+                <td>
+                    <span class="muted" th:if="${user.email == #authentication.name}">You (logged in)</span>
+                    <form th:unless="${user.email == #authentication.name}"
+                          th:action="@{'/admin/users/delete/' + ${user.id}}" method="post"
+                          onsubmit="return confirm('Delete this user AND all their appointments and medical records? This cannot be undone.');">
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <p class="empty-state" th:if="${#lists.isEmpty(users)}">No users yet.</p>
+    </div>
+</div>
+</body>
+</html>

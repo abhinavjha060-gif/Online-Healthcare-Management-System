@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Healthcare MS</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="~{fragments/nav :: nav}"></div>
+
+<form class="form-box" th:action="@{/login}" method="post">
+    <h2>Login</h2>
+
+    <div class="alert alert-success" th:if="${success}" th:text="${success}"></div>
+    <div class="alert alert-error" th:if="${param.error}">Invalid email or password.</div>
+    <div class="alert alert-success" th:if="${param.logout}">You have been logged out.</div>
+    <div class="alert alert-success" th:if="${param.deleted}">Your account has been deleted.</div>
+
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="username" required autofocus>
+    </div>
+    <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="password" required>
+    </div>
+    <button type="submit" class="btn btn-primary" style="width:100%;">Login</button>
+
+    <p class="muted text-center" style="margin-top:1.2rem;">
+        Don't have an account? <a th:href="@{/register}">Register as a patient</a>
+    </p>
+
+    <div class="muted" style="margin-top:1.5rem; border-top:1px solid #e5e7eb; padding-top:1rem;">
+        <strong>Demo accounts</strong><br>
+        Admin: admin@hms.com / admin123<br>
+        Doctor: doctor@hms.com / doctor123<br>
+        Patient: patient@hms.com / patient123
+    </div>
+</form>
+</body>
+</html>

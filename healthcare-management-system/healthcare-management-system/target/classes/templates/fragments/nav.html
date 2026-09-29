@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<body>
+<nav class="navbar" th:fragment="nav">
+    <a class="brand" th:href="@{/}">Healthcare MS</a>
+    <div class="nav-links">
+        <div sec:authorize="hasRole('ADMIN')" style="display:flex; gap:1.25rem;">
+            <a th:href="@{/admin/dashboard}">Dashboard</a>
+            <a th:href="@{/admin/users}">Users</a>
+            <a th:href="@{/admin/doctors/new}">Add Doctor</a>
+            <a th:href="@{/admin/appointments}">Appointments</a>
+        </div>
+        <div sec:authorize="hasRole('DOCTOR')" style="display:flex; gap:1.25rem;">
+            <a th:href="@{/doctor/dashboard}">Dashboard</a>
+            <a th:href="@{/doctor/appointments}">Appointments</a>
+            <a th:href="@{/doctor/records}">Medical Records</a>
+        </div>
+        <div sec:authorize="hasRole('PATIENT')" style="display:flex; gap:1.25rem;">
+            <a th:href="@{/patient/dashboard}">Dashboard</a>
+            <a th:href="@{/patient/appointments/new}">Book Appointment</a>
+            <a th:href="@{/patient/appointments}">My Appointments</a>
+            <a th:href="@{/patient/records}">My Records</a>
+        </div>
+        <div sec:authorize="isAuthenticated()" style="display:flex; gap:1.25rem; align-items:center;">
+            <a th:href="@{/account}">My Account</a>
+            <form th:action="@{/logout}" method="post">
+                <button type="submit" class="linklike">Logout</button>
+            </form>
+        </div>
+        <div sec:authorize="!isAuthenticated()" style="display:flex; gap:1.25rem;">
+            <a th:href="@{/login}">Login</a>
+            <a th:href="@{/register}">Register</a>
+        </div>
+    </div>
+</nav>
+</body>
+</html>

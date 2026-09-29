@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Appointment</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="~{fragments/nav :: nav}"></div>
+
+<form class="form-box" th:action="@{/patient/appointments/new}" method="post">
+    <h2>Book an Appointment</h2>
+    <div class="alert alert-error" th:if="${error}" th:text="${error}"></div>
+
+    <div class="form-group">
+        <label>Doctor</label>
+        <select name="doctorId" required>
+            <option th:each="d : ${doctors}" th:value="${d.id}"
+                    th:text="${d.user.fullName} + ' — ' + ${d.specialization}"></option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Preferred Date &amp; Time</label>
+        <input type="datetime-local" name="appointmentDateTime" required>
+    </div>
+    <div class="form-group">
+        <label>Reason for Visit</label>
+        <textarea name="reason" required placeholder="Briefly describe your symptoms or reason for the visit"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" style="width:100%;">Book Appointment</button>
+</form>
+</body>
+</html>

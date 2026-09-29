@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div th:replace="~{fragments/nav :: nav}"></div>
+
+<div class="container">
+    <h1 th:text="'Welcome, ' + ${patient.user.fullName}">Welcome</h1>
+    <p class="muted" th:text="'Blood Group: ' + ${patient.bloodGroup}">Blood Group</p>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-number" th:text="${totalAppointments}">0</div>
+            <div class="stat-label">Total Appointments</div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Recent Appointments</h3>
+        <table>
+            <thead><tr><th>Date/Time</th><th>Doctor</th><th>Status</th></tr></thead>
+            <tbody>
+            <tr th:each="a : ${recentAppointments}">
+                <td th:text="${#temporals.format(a.appointmentDateTime, 'dd MMM yyyy, hh:mm a')}">date</td>
+                <td th:text="${a.doctor.user.fullName}">Doctor</td>
+                <td><span class="badge" th:classappend="${'badge-' + #strings.toLowerCase(a.status.name())}"
+                          th:text="${a.status}">STATUS</span></td>
+            </tr>
+            </tbody>
+        </table>
+        <p class="empty-state" th:if="${#lists.isEmpty(recentAppointments)}">No appointments yet.</p>
+    </div>
+
+    <div class="actions">
+        <a class="btn btn-primary" th:href="@{/patient/appointments/new}">Book New Appointment</a>
+        <a class="btn btn-secondary" th:href="@{/patient/records}">View Medical Records</a>
+    </div>
+</div>
+</body>
+</html>
