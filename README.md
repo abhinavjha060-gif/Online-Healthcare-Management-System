@@ -90,10 +90,12 @@ service/
 The database folder contains the tables, view, stored procedure, and demo data.<br> `DatabaseConnection` reads the settings from `db.properties`. The database URL, username, and password can also be provided using the environment variables `DB_URL`, `DB_USER`, and `DB_PASSWORD`. <br>
 The `dao` package contains the SQL/database operations, while the `service` package contains the application logic such as settings, schedules, and the doctor dashboard.<br>
 
-###### Team composistion :
-|Team composion|Roles             |Name             |Work done                                    |
-|--------------|------------------|-----------------|---------------------------------------------|
-|Team Leader   |Integration       | Abhinav Jha     | Integration, documentation, leader, testing |
-|Member        |Frontend developer| Nitesh Sharma   | frontend development, frontend design       |
-|Member        |DBMS developer    | Sameer ED       | DBMS development, DBMS Design               |
-|Member        |Backend developer | Rajkumar Rajpoot| backend development                         |
+###### Team composition :
+|Team Composition |Roles              |Name             |email                         | Work done                                   |
+|------------------|-------------------|-----------------|------------------------------|---------------------------------------------|
+|Team Leader       |Integration        | Abhinav Jha     | abhinav.jha060@gamil.com     | Integration, documentation, leader, testing |
+|Member            |Frontend developer | Nitesh Sharma   | niteshsharma5293@gmail.com   | frontend development, frontend design       |
+|Member            |DBMS developer     | Sameer malik    | sameer0malik0@gmail.com      | DBMS development, DBMS Design               |
+|Member            |Backend developer  | Rajkumar Rajpoot| rajkumarrajpoot2506@gmail.com| backend development                         |
+
+**Note : The files were shared using Whatsapp via .zip and then the project was uploaded to GitHub via git after integration by the Team leader.**
