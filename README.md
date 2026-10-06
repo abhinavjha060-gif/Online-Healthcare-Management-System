@@ -98,4 +98,4 @@ The `dao` package contains the SQL/database operations, while the `service` pack
 |Member            |DBMS developer     | Sameer malik    | sameer0malik0@gmail.com      | DBMS development, DBMS Design               |
 |Member            |Backend developer  | Rajkumar Rajpoot| rajkumarrajpoot2506@gmail.com| backend development                         |
 
-**Note : The files were shared using Whatsapp via .zip and then the project was uploaded to GitHub via git after integration by the Team leader.**
+**Note : The files were shared using Whatsapp as .zip and then the project was uploaded to GitHub via git after integration by the Team leader.**
