@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "MediCare (run the app)",
+            "request": "launch",
+            "mainClass": "com.healthcare.Launcher"
+        },
+        {
+            "type": "java",
+            "name": "Test database connection",
+            "request": "launch",
+            "mainClass": "com.healthcare.TestDB"
+        }
+    ]
+}

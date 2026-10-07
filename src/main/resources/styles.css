@@ -1,0 +1,266 @@
+/* ============================================================
+   MEDICARE - LOGIN PAGE
+   ============================================================ */
+
+.root {
+    -fx-font-family: "Segoe UI";
+    -fx-background-color: #f4f7fb;
+}
+
+
+/* ============================================================
+   LEFT BRANDING PANEL
+   ============================================================ */
+
+.login-left {
+    -fx-background-color: #12355b;
+}
+
+.logo-shape {
+    -fx-background-color: #2d9cdb;
+    -fx-background-radius: 10;
+    -fx-min-width: 45;
+    -fx-min-height: 45;
+    -fx-max-width: 45;
+    -fx-max-height: 45;
+}
+
+.logo-text {
+    -fx-text-fill: white;
+}
+
+.left-heading {
+    -fx-text-fill: white;
+    -fx-line-spacing: 4px;
+}
+
+.left-description {
+    -fx-text-fill: #d7e6f5;
+    -fx-line-spacing: 5px;
+}
+
+.left-bottom-text {
+    -fx-text-fill: #9fb8d2;
+    -fx-font-size: 13px;
+}
+
+
+/* ============================================================
+   FEATURES
+   ============================================================ */
+
+.feature-circle {
+    -fx-fill: #2d9cdb;
+}
+
+.feature-check {
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.feature-text {
+    -fx-text-fill: #e1edf8;
+    -fx-font-size: 15px;
+}
+
+
+/* ============================================================
+   RIGHT SIDE
+   ============================================================ */
+
+.login-right {
+    -fx-background-color: #f4f7fb;
+}
+
+
+/* ============================================================
+   LOGIN CARD
+   ============================================================ */
+
+.login-card {
+    -fx-background-color: white;
+
+    -fx-background-radius: 18;
+
+    -fx-border-color: #e2e8f0;
+    -fx-border-width: 1;
+    -fx-border-radius: 18;
+
+    -fx-effect: dropshadow(
+            gaussian,
+            rgba(0, 0, 0, 0.10),
+            25,
+            0.15,
+            0,
+            8
+    );
+}
+
+
+/* ============================================================
+   WELCOME TEXT
+   ============================================================ */
+
+.welcome-title {
+    -fx-text-fill: #163b63;
+}
+
+.welcome-subtitle {
+    -fx-text-fill: #64748b;
+    -fx-font-size: 14px;
+}
+
+
+/* ============================================================
+   FORM LABELS
+   ============================================================ */
+
+.field-label {
+    -fx-text-fill: #183b60;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+
+/* ============================================================
+   TEXT FIELDS
+   ============================================================ */
+
+.login-field {
+    -fx-background-color: white;
+
+    -fx-border-color: #cbd5e1;
+    -fx-border-width: 1;
+
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+
+    -fx-padding: 0 14;
+
+    -fx-font-size: 14px;
+}
+
+.login-field:hover {
+    -fx-border-color: #7aaed6;
+}
+
+.login-field:focused {
+    -fx-border-color: #2684d9;
+    -fx-border-width: 2;
+}
+
+
+/* ============================================================
+   COMBO BOX
+   ============================================================ */
+
+.login-combo {
+    -fx-background-color: white;
+
+    -fx-border-color: #cbd5e1;
+    -fx-border-width: 1;
+
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+
+    -fx-padding: 0 8;
+
+    -fx-font-size: 14px;
+}
+
+.login-combo:hover {
+    -fx-border-color: #7aaed6;
+}
+
+.login-combo:focused {
+    -fx-border-color: #2684d9;
+}
+
+
+/* ============================================================
+   REMEMBER ME
+   ============================================================ */
+
+.remember-checkbox {
+    -fx-text-fill: #64748b;
+    -fx-font-size: 13px;
+}
+
+.remember-checkbox .box {
+    -fx-background-color: white;
+    -fx-border-color: #cbd5e1;
+    -fx-border-radius: 4;
+}
+
+.remember-checkbox:selected .box {
+    -fx-background-color: #2684d9;
+    -fx-border-color: #2684d9;
+}
+
+.remember-checkbox:selected .mark {
+    -fx-background-color: white;
+}
+
+
+/* ============================================================
+   LINKS
+   ============================================================ */
+
+.forgot-link,
+.signup-link {
+    -fx-text-fill: #1976d2;
+    -fx-font-size: 13px;
+    -fx-border-color: transparent;
+    -fx-padding: 0;
+}
+
+.forgot-link:hover,
+.signup-link:hover {
+    -fx-text-fill: #0d5da8;
+}
+
+
+/* ============================================================
+   SIGN IN BUTTON
+   ============================================================ */
+
+.login-button {
+    -fx-background-color: #2684d9;
+
+    -fx-text-fill: white;
+
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+
+    -fx-background-radius: 8;
+
+    -fx-cursor: hand;
+}
+
+.login-button:hover {
+    -fx-background-color: #176fc0;
+}
+
+.login-button:pressed {
+    -fx-background-color: #105b9f;
+}
+
+
+/* ============================================================
+   CREATE ACCOUNT
+   ============================================================ */
+
+.account-text {
+    -fx-text-fill: #64748b;
+    -fx-font-size: 13px;
+}
+
+
+/* ============================================================
+   SCROLLBAR
+   ============================================================ */
+
+.scroll-bar {
+    -fx-background-color: transparent;
+}

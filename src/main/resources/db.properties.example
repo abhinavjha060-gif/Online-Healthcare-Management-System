@@ -1,0 +1,4 @@
+# Copy this file to  db.properties  and fill in your own MySQL details.
+db.url=jdbc:mysql://localhost:3306/healthcare_db
+db.user=root
+db.password=your_password_here
