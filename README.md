@@ -33,6 +33,7 @@ Before running the application, set up the MySQL database.
 
 3. Enter your MySQL username and password.<br>
    First time only: copy `src/main/resources/db.properties.example` to `src/main/resources/db.properties`. Then open `db.properties` and set `db.user` and `db.password`.<br>
+   ** note*the db.properties.example and db.properties both have the same placeholder. hence why you can add you username/password directly to db.properties *_**
    (`db.properties` is listed in `.gitignore`, so your password is not committed.)
 
 4. To check that the connection works, run `com.healthcare.TestDB`.
