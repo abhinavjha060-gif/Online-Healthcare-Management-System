@@ -101,5 +101,5 @@ The tables `system_settings` and `patient_health_info` are also created automati
 |-------------|--------------------|-------------------|-------------------------------------------------|
 | Team Leader | Integration        | Abhinav Jha       | Integration, documentation, leadership, testing |
 | Member      | Frontend developer | Nitesh Sharma     | Frontend development, frontend design           |
-| Member      | DBMS developer     | Sameer ED         | DBMS development, DBMS design                   |
+| Member      | DBMS developer     | Sameer Malik         | DBMS development, DBMS design                   |
 | Member      | Backend developer  | Rajkumar Rajpoot  | Backend development                             |
