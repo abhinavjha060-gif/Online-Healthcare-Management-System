@@ -1,7 +1,7 @@
 # MediCare - Online Healthcare Management System
 # Online-Healthcare-Management-System
 <img src="assets/icon.png" width="190" height="190">
-Our project optimizes healthcare scheduling to streamline appointment management, reduce wait times, and improve patient-care delivery<br>
+The project optimizes healthcare scheduling to streamline appointment management, reduce wait times, and improve patient-care delivery<br>
 
 MediCare is a JavaFX desktop application for managing patients, doctors, appointments and admin operations. Each user type (Admin, Doctor, Patient) has its own dashboard.
 
